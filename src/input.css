@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(to right, #22d3ee, #0ea5e9);
+    -webkit-background-clip: text; /* Dành cho Chrome, Safari, Edge cũ */
+    background-clip: text;         /* Thuộc tính tiêu chuẩn W3C */
+    -webkit-text-fill-color: transparent;
+  }
+}
