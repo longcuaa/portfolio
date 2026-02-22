@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Long - Software Developer</title>
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS cho nền và hiệu ứng */
+        body { background-color: #020617; color: #cbd5e1; }
+        .text-gradient {
+            background: linear-gradient(to right, #22d3ee, #0ea5e9);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .project-card { transition: all 0.4s ease; }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px -10px rgba(6, 182, 212, 0.2); }
+        
+        /* Hiệu ứng con trỏ gõ chữ */
+        .cursor::after { content: '|'; animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        
+        /* Hiệu ứng mượt cho bộ lọc dự án */
+        .hide-project { display: none; }
+        .show-project { animation: fadeIn 0.5s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        
+        /* Thanh cuộn tuỳ chỉnh */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #0891b2; border-radius: 4px; }
+    </style>
+</head>
+<body class="font-sans antialiased relative selection:bg-cyan-500 selection:text-white">
+
+    <nav class="fixed w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-cyan-400 tracking-tighter">&lt;Long/&gt;</a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-cyan-400 font-medium transition">Giới thiệu</a>
+                <a href="#journey" class="hover:text-cyan-400 font-medium transition">Hành trình</a>
+                <a href="#skills" class="hover:text-cyan-400 font-medium transition">Kỹ năng</a>
+                <a href="#projects" class="hover:text-cyan-400 font-medium transition">Dự án</a>
+                <a href="#contact" class="hover:text-cyan-400 font-medium transition">Liên hệ</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-slate-300 hover:text-cyan-400 focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-4">
+            <a href="#about" class="block hover:text-cyan-400 font-medium">Giới thiệu</a>
+            <a href="#journey" class="block hover:text-cyan-400 font-medium">Hành trình</a>
+            <a href="#skills" class="block hover:text-cyan-400 font-medium">Kỹ năng</a>
+            <a href="#projects" class="block hover:text-cyan-400 font-medium">Dự án</a>
+            <a href="#contact" class="block hover:text-cyan-400 font-medium">Liên hệ</a>
+        </div>
+    </nav>
+
+    <section id="home" class="pt-40 pb-20 px-6 container mx-auto flex flex-col items-center text-center min-h-screen flex justify-center relative">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-cyan-900/20 rounded-full blur-[100px] -z-10"></div>
+        <div class="absolute bottom-20 right-10 w-72 h-72 bg-blue-900/20 rounded-full blur-[100px] -z-10"></div>
+
+        <img src="https://via.placeholder.com/150" alt="Avatar" class="w-40 h-40 rounded-full object-cover mb-8 border-4 border-slate-800 shadow-xl shadow-cyan-500/20">
+        
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">
+            Xin chào, tôi là <span class="text-gradient">Long</span>
+        </h1>
+        
+        <h2 class="text-2xl md:text-3xl font-semibold text-slate-400 mb-8 h-10">
+            Tôi là <span id="typing-text" class="text-cyan-400 cursor"></span>
+        </h2>
+        
+        <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed" id="about">
+            Sinh viên năm 4 với định hướng phát triển ở mảng Web Backend, Machine Learning và Phân tích dữ liệu. Tôi thích tự mày mò xây dựng các hệ thống thực tế và luôn sẵn sàng đón nhận thử thách để trau dồi chuyên môn mỗi ngày.
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#" target="_blank" class="bg-cyan-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-cyan-500 transition shadow-lg shadow-cyan-600/30">
+                <i class="fas fa-download mr-2"></i> Tải CV
+            </a>
+            <a href="#projects" class="bg-transparent text-cyan-400 border-2 border-cyan-500 px-8 py-3 rounded-full font-semibold hover:bg-slate-800 transition">
+                Xem Dự Án
+            </a>
+        </div>
+        
+        <div class="mt-12 flex space-x-8 text-3xl text-slate-500">
+            <a href="https://github.com/longcuaa" target="_blank" class="hover:text-white transition transform hover:scale-110"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </section>
+
+    <section id="journey" class="py-20 px-6 bg-slate-900/40 border-y border-slate-800/50">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center text-white mb-16">Hành Trình Học Tập</h2>
+            <div class="relative border-l-2 border-cyan-800 ml-3 md:ml-0 md:pl-0">
+                
+                <div class="mb-10 ml-8 relative">
+                    <div class="absolute -left-[41px] top-1 w-5 h-5 bg-cyan-500 rounded-full border-4 border-slate-950 shadow-lg shadow-cyan-500/50"></div>
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-cyan-500/30 transition">
+                        <span class="text-cyan-400 font-bold text-sm uppercase tracking-wider">Hiện tại (Sinh viên năm 4)</span>
+                        <h3 class="text-xl font-bold text-white mt-1 mb-2">Đào sâu AI & Xử Lý Dữ Liệu</h3>
+                        <p class="text-slate-400">Tập trung nghiên cứu và triển khai các mô hình Machine Learning, tích hợp mô hình ngôn ngữ lớn (LLM) qua Gemini API và xây dựng hệ thống RAG.</p>
+                    </div>
+                </div>
+
+                <div class="mb-10 ml-8 relative">
+                    <div class="absolute -left-[41px] top-1 w-5 h-5 bg-cyan-700 rounded-full border-4 border-slate-950"></div>
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-cyan-500/30 transition">
+                        <span class="text-cyan-600 font-bold text-sm uppercase tracking-wider">Năm 3</span>
+                        <h3 class="text-xl font-bold text-white mt-1 mb-2">Web Backend & System Analysis</h3>
+                        <p class="text-slate-400">Tiếp cận việc thiết kế và xây dựng cơ sở dữ liệu server. Rèn luyện kỹ năng phân tích nghiệp vụ, vẽ User Stories và tạo Persona thông qua dự án eClinic.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold text-center text-white mb-16">Kỹ Năng & Công Cụ</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-cyan-500/50 transition">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center"><i class="fas fa-server mr-3 text-2xl"></i>Backend & Web</h3>
+                    <ul class="space-y-3 text-slate-300">
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> Phát triển server (Node.js/Python)</li>
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> Quản trị Database</li>
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> Thiết kế UI & HTML/CSS/Tailwind</li>
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> Git & Quản lý mã nguồn</li>
+                    </ul>
+                </div>
+                
+                <div class="p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-cyan-500/50 transition">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center"><i class="fas fa-brain mr-3 text-2xl"></i>Data & AI</h3>
+                    <ul class="space-y-3 text-slate-300">
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> Data & Business Analysis</li>
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> ML Models (SVM, Naive Bayes, LR)</li>
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> Tích hợp LangChain & Gemini API</li>
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> NLP (Xử lý ngôn ngữ tự nhiên)</li>
+                    </ul>
+                </div>
+                
+                <div class="p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-cyan-500/50 transition">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center"><i class="fas fa-palette mr-3 text-2xl"></i>Đa Phương Tiện & NN</h3>
+                    <ul class="space-y-3 text-slate-300">
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> Thiết kế đồ hoạ 2D (Inkscape)</li>
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> Biên tập Video (Video Editing)</li>
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> Tiếng Nhật (Đang học hỏi)</li>
+                        <li><i class="fas fa-check text-cyan-600 mr-2 text-sm"></i> Tiếng Anh chuyên ngành</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 px-6 bg-slate-900/40 border-t border-slate-800">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center text-white mb-10">Dự Án Cá Nhân</h2>
+            
+            <div class="flex justify-center flex-wrap gap-4 mb-14">
+                <button class="filter-btn px-6 py-2 rounded-full font-medium bg-cyan-600 text-white transition" data-filter="all">Tất cả</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-filter="ai">Machine Learning / AI</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-filter="backend">Backend / System</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="project-item bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 project-card group flex flex-col" data-category="ai">
+                    <div class="p-6 flex-grow">
+                        <div class="w-12 h-12 bg-cyan-900/50 rounded-lg flex items-center justify-center mb-4 text-cyan-400 text-2xl">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Hệ Thống RAG & AI Assistant</h3>
+                        <p class="text-slate-400 mb-4 text-sm">Sử dụng LangChain kết hợp với Gemini Embedding Model để xây dựng hệ thống truy xuất và tạo lập văn bản thông minh (RAG). Xử lý tốt các vấn đề về API quota để hệ thống vận hành ổn định.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-cyan-950 text-cyan-400 text-xs font-bold rounded border border-cyan-800/50">LangChain</span>
+                            <span class="px-2 py-1 bg-cyan-950 text-cyan-400 text-xs font-bold rounded border border-cyan-800/50">Gemini API</span>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 mt-auto">
+                        <a href="https://github.com/longcuaa" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold text-sm transition"><i class="fab fa-github mr-1"></i> Xem Source Code</a>
+                    </div>
+                </div>
+
+                <div class="project-item bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 project-card group flex flex-col" data-category="ai">
+                    <div class="p-6 flex-grow">
+                        <div class="w-12 h-12 bg-cyan-900/50 rounded-lg flex items-center justify-center mb-4 text-cyan-400 text-2xl">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Phân Tích Cảm Xúc YouTube</h3>
+                        <p class="text-slate-400 mb-4 text-sm">Dự án thu thập và phân loại sắc thái bình luận trên YouTube. Tiến hành tiền xử lý dữ liệu và huấn luyện song song 3 mô hình: Support Vector Machine (SVM), Naive Bayes và Logistic Regression để so sánh độ chính xác.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-cyan-950 text-cyan-400 text-xs font-bold rounded border border-cyan-800/50">Machine Learning</span>
+                            <span class="px-2 py-1 bg-cyan-950 text-cyan-400 text-xs font-bold rounded border border-cyan-800/50">NLP</span>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 mt-auto">
+                        <a href="https://github.com/longcuaa" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold text-sm transition"><i class="fab fa-github mr-1"></i> Xem Source Code</a>
+                    </div>
+                </div>
+
+                <div class="project-item bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 project-card group flex flex-col" data-category="backend">
+                    <div class="p-6 flex-grow">
+                        <div class="w-12 h-12 bg-cyan-900/50 rounded-lg flex items-center justify-center mb-4 text-cyan-400 text-2xl">
+                            <i class="fas fa-laptop-medical"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Nền Tảng Đặt Lịch eClinic</h3>
+                        <p class="text-slate-400 mb-4 text-sm">Tham gia phát triển hệ thống phòng khám trực tuyến. Đảm nhiệm từ khâu thiết kế Persona, User Stories, UI cơ bản cho đến việc thiết lập database và cấu hình cho Presify-server.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-cyan-950 text-cyan-400 text-xs font-bold rounded border border-cyan-800/50">Database Design</span>
+                            <span class="px-2 py-1 bg-cyan-950 text-cyan-400 text-xs font-bold rounded border border-cyan-800/50">System Analysis</span>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 mt-auto">
+                        <a href="https://github.com/longcuaa" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold text-sm transition"><i class="fab fa-github mr-1"></i> Xem Source Code</a>
+                    </div>
+                </div>
+
+                <div class="project-item bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 project-card group flex flex-col" data-category="ai">
+                    <div class="p-6 flex-grow">
+                        <div class="w-12 h-12 bg-cyan-900/50 rounded-lg flex items-center justify-center mb-4 text-cyan-400 text-2xl">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Chatbot Du Lịch Hà Nội</h3>
+                        <p class="text-slate-400 mb-4 text-sm">Xây dựng luồng hội thoại trợ lý ảo hỗ trợ thông tin du lịch. Tích hợp các kỹ thuật xử lý ngôn ngữ tự nhiên để chatbot hiểu và phản hồi chính xác ý định của người dùng.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-cyan-950 text-cyan-400 text-xs font-bold rounded border border-cyan-800/50">Chatbot Architecture</span>
+                            <span class="px-2 py-1 bg-cyan-950 text-cyan-400 text-xs font-bold rounded border border-cyan-800/50">Python API</span>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 mt-auto">
+                        <a href="https://github.com/longcuaa" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold text-sm transition"><i class="fab fa-github mr-1"></i> Xem Source Code</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 relative border-t border-slate-800">
+        <div class="container mx-auto text-center max-w-3xl relative z-10">
+            <h2 class="text-3xl font-bold text-white mb-6">Bạn Cần Một Sinh Viên IT Nhiệt Huyết?</h2>
+            <p class="text-slate-400 mb-10 text-lg">Tôi đang tìm kiếm cơ hội thực tập hoặc công việc để đóng góp giá trị và học hỏi từ các chuyên gia. Hãy kết nối với tôi!</p>
+            <a href="mailto:email-cua-ban@gmail.com" class="inline-flex items-center bg-cyan-600 text-white px-8 py-4 rounded-full font-bold hover:bg-cyan-500 transition shadow-lg shadow-cyan-600/30">
+                <i class="fas fa-paper-plane mr-3"></i> Gửi Email Ngay
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-500 py-8 text-center border-t border-slate-800 text-sm">
+        <p>Phát triển bởi Long &copy; 2026. Built with HTML, Tailwind CSS & JS.</p>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-cyan-600 text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-cyan-500 flex items-center justify-center text-xl z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 1. Menu Mobile
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 2. Hiệu ứng gõ chữ (Typing Effect)
+        const words = ["Sinh viên năm 4.", "người đam mê Dữ liệu.", "AI/ML Learner.", "Backend Developer."];
+        let i = 0, timer;
+        function typingEffect() {
+            let word = words[i].split("");
+            let loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typing-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+        function deletingEffect() {
+            let word = words[i].split("");
+            let loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typing-text').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) { i++; } else { i = 0; }
+                    typingEffect();
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        // 3. Lọc Dự Án (Project Filter)
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-cyan-600', 'text-white');
+                    b.classList.add('bg-slate-800', 'text-slate-300');
+                });
+                btn.classList.remove('bg-slate-800', 'text-slate-300');
+                btn.classList.add('bg-cyan-600', 'text-white');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hide-project');
+                        item.classList.add('show-project');
+                    } else {
+                        item.classList.add('hide-project');
+                        item.classList.remove('show-project');
+                    }
+                });
+            });
+        });
+
+        // 4. Back to Top Button & Navbar Scroll
+        const backToTopBtn = document.getElementById('back-to-top');
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+                navbar.classList.add('shadow-md');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
